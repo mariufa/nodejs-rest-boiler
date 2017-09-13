@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-rest-boiler",
+  "version": "1.0.0",
+  "description": "RESTful api for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariufa/nodejs-rest-boiler.git"
+  },
+  "keywords": [
+    "REST",
+    "API",
+    "BOILER"
+  ],
+  "author": "Marius Fagerland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mariufa/nodejs-rest-boiler/issues"
+  },
+  "homepage": "https://github.com/mariufa/nodejs-rest-boiler#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "mongoose": "^4.10.8"
+  }
+}
