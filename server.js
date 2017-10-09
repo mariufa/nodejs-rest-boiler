@@ -11,12 +11,12 @@ mongoose.connect('mongodb://localhost/Basicdb');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+var routes = require('./api/routes/basic.server.routes');
+routes(app);
+
 app.use(function(req, res) {
   res.status(404).send({url: req.originalUrl + ' not found'})
 });
-
-var routes = require('./api/routes/basic.routes');
-routes(app);
 
 app.listen(port);
 
