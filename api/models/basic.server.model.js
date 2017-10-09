@@ -10,13 +10,6 @@ var BasicSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
-  },
-  message: {
-    type: [{
-      type: String,
-      enum: ['pending', 'outgoing', 'completed']
-    }],
-    default: ['pending']
   }
 });
 
