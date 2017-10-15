@@ -3,20 +3,16 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Basic = require('./api/models/basic.server.model'),
+  cors = require('cors'),
   bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Basicdb');
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
+app.use(cors());
 
 var routes = require('./api/routes/basic.server.routes');
 routes(app);
