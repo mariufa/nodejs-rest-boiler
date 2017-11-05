@@ -2,19 +2,19 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  Basic = require('./api/models/basic.server.model'),
+  Message = require('./api/models/message.server.model'),
   cors = require('cors'),
   bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Basicdb');
+mongoose.connect('mongodb://localhost/Protokollendb');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-var routes = require('./api/routes/basic.server.routes');
+var routes = require('./api/routes/message.server.routes');
 routes(app);
 
 app.use(function(req, res) {
@@ -23,4 +23,4 @@ app.use(function(req, res) {
 
 app.listen(port);
 
-console.log('Basic nodejs REST API boilerplate server started on: ' + port);
+console.log('Protokollen nodejs REST API server started on: ' + port);

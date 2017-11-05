@@ -2,10 +2,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var BasicSchema = new Schema({
-  name: {
+var MessageSchema = new Schema({
+  text: {
     type: String,
-    required: 'Kindly enter the name'
+    required: 'Kindly enter the text'
   },
   created: {
     type: Date,
@@ -13,4 +13,4 @@ var BasicSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Basics', BasicSchema);
+module.exports = mongoose.model('Messages', MessageSchema);
