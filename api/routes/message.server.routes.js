@@ -1,14 +1,15 @@
 'use strict'
 module.exports = function(app) {
-  var message = require('../controllers/message.server.controller');
+  var message = require('../controllers/message.server.controller'),
+  userHandlers = require('../controllers/user.server.controller')
 
   // message routes
   app.route('/api/messages')
-    .get(message.list_all_messages)
-    .post(message.create_a_message);
+    .get(userHandlers.loginRequired, message.list_all_messages)
+    .post(userHandlers.loginRequired, message.create_a_message);
 
   app.route('/api/messages/:messageId')
-    .get(message.read_a_message)
-    .put(message.update_a_message)
-    .delete(message.delete_a_message);
+    .get(userHandlers.loginRequired, message.read_a_message)
+    .put(userHandlers.loginRequired, message.update_a_message)
+    .delete(userHandlers.loginRequired, message.delete_a_message);
 };
